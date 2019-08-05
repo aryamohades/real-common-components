@@ -1,0 +1,5 @@
+/* https://github.com/zeit/next.js/issues/4068 */
+{
+    "presets": ["next/babel"],
+    "plugins": [["styled-components", { "ssr": true }]]
+}
