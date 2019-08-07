@@ -1,16 +1,11 @@
 {
-  "name": "common-components",
+  "name": "real-common-components",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
@@ -19,9 +14,12 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.6"
-  }
+  },
+  "author": "aryamohades",
+  "license": "MIT"
 }

@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 
-export const font = '"Helvetica Neue", Helvetica, Arial, sans-serif';
-export const border = '1px solid transparent';
-export const borderRadius = '3px';
-export const colorDisabled = '#e3e3e3';
-export const textColorDisabled = '#a5acb0';
-export const shadowColorDisabled = '#d6dadc';
+const font = '"Helvetica Neue", Helvetica, Arial, sans-serif';
+const border = '1px solid transparent';
+const borderRadius = '3px';
+const colorDisabled = '#e3e3e3';
+const textColorDisabled = '#a5acb0';
+const shadowColorDisabled = '#d6dadc';
 
-export const sizes = {
+const sizes = {
   small: {
     fontSize: '14px',
     padding: '10px 16px'
@@ -22,7 +22,7 @@ export const sizes = {
   }
 };
 
-export const colors = {
+const themes = {
   primary: {
     color: '#0079be',
     colorHover: '#016aa7',
@@ -91,45 +91,7 @@ export const colors = {
   }
 };
 
-const addButtonSize = ({ small, medium, large }) => {
-  let size = 'medium';
-
-  if (large) {
-    size = 'large';
-  } else if (medium) {
-    size = 'medium';
-  } else if (small) {
-    size = 'small';
-  }
-
-  return css`
-    font-size: ${sizes[size].fontSize};
-    padding: ${sizes[size].padding};
-  `;
-};
-
-const addButtonTheme = ({ theme, disabled }) =>
-  !disabled &&
-  colors[theme] &&
-  css`
-    background: ${colors[theme].color};
-    color: ${colors[theme].textColor};
-    box-shadow: 0 2px ${colors[theme].shadowColor};
-
-    &:hover {
-      background: ${colors[theme].colorHover};
-      color: ${colors[theme].textColorHover};
-      box-shadow: 0 2px ${colors[theme].shadowColorHover};
-    }
-
-    &:active {
-      background: ${colors[theme].colorActive};
-      color: ${colors[theme].textColorActive};
-      box-shadow: 0 2px ${colors[theme].shadowColorActive};
-    }
-  `;
-
-export const StyledButton = styled.button`
+const baseStyle = css`
   display: inline-block;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -149,7 +111,59 @@ export const StyledButton = styled.button`
     color: ${textColorDisabled};
     box-shadow: 0 2px ${shadowColorDisabled};
   }
+`;
 
-  ${addButtonSize}
-  ${addButtonTheme}
+const sizeStyle = ({ small, medium, large }) => {
+  let size = 'medium';
+
+  if (large) {
+    size = 'large';
+  } else if (medium) {
+    size = 'medium';
+  } else if (small) {
+    size = 'small';
+  }
+
+  return css`
+    font-size: ${sizes[size].fontSize};
+    padding: ${sizes[size].padding};
+  `;
+};
+
+const colorStyle = ({ theme, disabled }) =>
+  !disabled &&
+  themes[theme] &&
+  css`
+    background: ${themes[theme].color};
+    color: ${themes[theme].textColor};
+    box-shadow: 0 2px ${themes[theme].shadowColor};
+
+    &:hover {
+      background: ${themes[theme].colorHover};
+      color: ${themes[theme].textColorHover};
+      box-shadow: 0 2px ${themes[theme].shadowColorHover};
+    }
+
+    &:active {
+      background: ${themes[theme].colorActive};
+      color: ${themes[theme].textColorActive};
+      box-shadow: 0 2px ${themes[theme].shadowColorActive};
+    }
+  `;
+
+const textStyle = ({ icon }) =>
+  icon &&
+  css`
+    > span {
+      margin-left: 8px;
+    }
+  `;
+
+export const availableThemes = Object.keys(themes);
+
+export default component => styled(component)`
+  ${baseStyle}
+  ${sizeStyle}
+  ${colorStyle}
+  ${textStyle}
 `;
