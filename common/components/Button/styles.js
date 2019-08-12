@@ -91,7 +91,7 @@ const themes = {
   }
 };
 
-const baseStyle = css`
+const buttonStyle = css`
   display: inline-block;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -162,7 +162,7 @@ const textStyle = ({ icon }) =>
 export const availableThemes = Object.keys(themes);
 
 export default component => styled(component)`
-  ${baseStyle}
+  ${buttonStyle}
   ${sizeStyle}
   ${colorStyle}
   ${textStyle}

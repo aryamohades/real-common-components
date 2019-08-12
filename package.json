@@ -18,6 +18,8 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
     "babel-plugin-styled-components": "^1.10.6"
   },
   "author": "aryamohades",

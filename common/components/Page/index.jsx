@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { loadIcons } from '../../util/font-awesome';
+import { loadIcons } from '../../lib/font-awesome';
 import GlobalStyle from './styles';
 
 loadIcons();

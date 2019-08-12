@@ -1,5 +1,9 @@
-/* https://github.com/zeit/next.js/issues/4068 */
 {
-    "presets": ["next/babel"],
-    "plugins": [["styled-components", { "ssr": true }]]
+  "presets": ["next/babel"],
+  "plugins": [
+    /* https://github.com/zeit/next.js/issues/4068 */
+    ["styled-components", { "ssr": true }],
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-namespace-from"
+  ]
 }
